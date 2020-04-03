@@ -6,7 +6,7 @@ require_relative '../kata/rsummer.rb'
 
 describe Summer do
   
-  describe "#number" do
+  describe " # number" do
     before(:context) { @generated_values = [] }
     
     it "each instance returns a different number" do
@@ -17,36 +17,13 @@ describe Summer do
     end
   end
   
-  context "check random numbers" do
-    before(:context) { @previous_values = [] }
+  describe " # add_to" do
+    #before(:example) { @inputs[rand(1..10), rand()]
     
-    before(:example) { @summer = Summer.new }
-    
-    it "returns a random number that wasn't already returned" do
-      expect(@summer.number).to be_a_kind_of(Integer).and be_within(50).of(50)
-      @previous_values << @summer.number
+    it "adds 5 times in the range 50 - 100" do
+      expect { subject.add_to(5, 50, 100) }.to change(subject, :number).by_at_least(5*50)
+      .and change(subject, :number).by_at_most(5*100)
     end
-    
-    it "returns a random number that wasn't already returned" do
-      expect(@summer.number).to be_a_kind_of(Integer).and be_within(50).of(50)
-      @previous_values << @summer.number
-    end
-    
-    it "returns a random number that wasn't already returned" do
-      @previous_values.each { |previous_value| expect(@summer.number).to_not eq(previous_value) }
-      @previous_values << @summer.number
-    end
-    
-    it "returns a random number that wasn't already returned" do
-      @previous_values.each { |previous_value| expect(@summer.number).to_not eq(previous_value) }
-      @previous_values << @summer.number
-    end
-    
-    it "returns a random number that wasn't already returned" do
-      @previous_values.each { |previous_value| expect(@summer.number).to_not eq(previous_value) }
-      @previous_values << @summer.number
-    end
-    
   end
   
 end
