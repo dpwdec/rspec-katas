@@ -30,7 +30,7 @@ shared_examples "insect" do |insect|
 end
 
 describe Beetle do
-  include_examples "insect", Beetle.new
+  include_examples "insect", described_class.new
   
   describe "# burrow" do
     it "returns some burrowing action when asked to burrow" do
@@ -40,7 +40,7 @@ describe Beetle do
 end
 
 describe Bee do
-  include_examples "insect", Bee.new
+  include_examples "insect", described_class.new
   
   describe "# fly" do
     it "returns some flying when asked to fly" do
