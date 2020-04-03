@@ -5,6 +5,18 @@
 require_relative '../kata/rsummer.rb'
 
 describe Summer do
+  
+  describe "#number" do
+    before(:context) { @generated_values = [] }
+    
+    it "each instance returns a different number" do
+      10.times do
+        @generated_values << Summer.new.number
+      end
+      expect(@generated_values.uniq.length).to be_within(2).of(10)
+    end
+  end
+  
   context "check random numbers" do
     before(:context) { @previous_values = [] }
     
