@@ -7,7 +7,15 @@ class Dog
     "Woof!"
   end
   
+  def feed
+    @hunger_level = 0
+  end
+  
   def hungry?
-    @hunger_level > 5
+    if @hunger_level > 5
+      return true
+    else
+      return false
+    end
   end
 end
