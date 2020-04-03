@@ -12,8 +12,7 @@ RSpec.describe Dog do
       subject { described_class.new(hunger_level: 7) } 
       
       it "is no longer hungry after being fed" do
-        subject.feed
-        expect(subject).to_not be_hungry
+        expect { subject.feed }.to change(subject, :hungry?).to be false
       end
     end
   end
