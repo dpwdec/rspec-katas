@@ -18,11 +18,11 @@ describe Summer do
   end
   
   describe " # add_to" do
-    #before(:example) { @inputs[rand(1..10), rand()]
+    before(:example) { @times, @min, @max = rand(1..10), rand(1..50), rand(51..100) }
     
-    it "adds 5 times in the range 50 - 100" do
-      expect { subject.add_to(5, 50, 100) }.to change(subject, :number).by_at_least(5*50)
-      .and change(subject, :number).by_at_most(5*100)
+    it "adds n times in the range min - max" do
+      expect { subject.add_to(@times, @min, @max) }.to change(subject, :number).by_at_least(@times * @min)
+      .and change(subject, :number).by_at_most(@times * @max)
     end
   end
   
