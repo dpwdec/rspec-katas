@@ -9,11 +9,11 @@
 require_relative '../kata/insects.rb'
 
 shared_examples "insect" do |insect|
-  describe "# food" do
-    it "is an insect" do
+  it "is an insect" do
       expect(insect).to be_a_kind_of(Insect)
     end
-    
+  
+  describe "# food" do
     it "stores a string describing its primary food source" do
       expect(insect.food).to be_a_kind_of(String)
     end
@@ -21,6 +21,7 @@ shared_examples "insect" do |insect|
       expect(insect.food).to_not be_empty
     end
   end
+  
   describe "# legs" do
     it "has six legs" do
       expect(insect.legs).to eq(6)
