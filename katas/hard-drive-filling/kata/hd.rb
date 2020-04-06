@@ -1,15 +1,9 @@
 class CapacityChecker
   
   class InvalidFileCapacityError < StandardError
-    def message
-      "Invalid file capacity."
-    end
   end
   
   class InvalidInputFile < StandardError
-    def message
-      "Input file size less than 1"
-    end
   end
   
   def initialize(file_sizes: [-1], capacity: -1)
@@ -19,7 +13,7 @@ class CapacityChecker
   
   def storage_check
     if !capacity_valid? 
-      raise InvalidFileCapacityError.new("Storage capacity #{@capacity} is invalid. Storage capacity must be greater than 0.")
+      raise InvalidFileCapacityError, "Storage capacity #{@capacity} is invalid. Storage capacity must be greater than 0."
     end
     
     if !valid_files?
